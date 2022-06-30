@@ -34,7 +34,7 @@ class ProgressSteps extends Component {
 
       step.push(
         <View key={i}>
-          <View>
+          <View style={{width:80}}>
             <StepIcon
               {...this.getChildProps()}
               stepNum={i + 1}

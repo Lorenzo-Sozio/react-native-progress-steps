@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
+import IconFeather from 'react-native-vector-icons/Feather';
+import Palette from '../../../../styles/Palette';
 
 class StepIcon extends Component {
+
   render() {
     let styles;
 
     if (this.props.isActiveStep) {
       styles = {
+        iconStep: {
+          alignSelf: 'center',
+          justifyContent: 'center', //Centered horizontally
+          alignItems: 'center', //Centered vertically
+          flexDirection:'column',
+          flexGrow:1,
+
+/*           borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: Palette.BC_EletricTurquoise_200,   */
+        },
         circleStyle: {
           width: 40,
           height: 40,
@@ -34,7 +48,8 @@ class StepIcon extends Component {
           position: 'absolute',
           top: 40 / 2.22,
           left: 0,
-          right: 40 + 8,
+          //right: 40 + 8,
+          right: 40,
           borderTopStyle: this.props.borderStyle,
           borderTopWidth: this.props.borderWidth,
           borderTopColor: this.props.completedProgressBarColor,
@@ -44,7 +59,8 @@ class StepIcon extends Component {
           position: 'absolute',
           top: 40 / 2.22,
           right: 0,
-          left: 40 + 8,
+          //left: 40 + 8,
+          left: 40,
           borderTopStyle: this.props.borderStyle,
           borderTopWidth: this.props.borderWidth,
           borderTopColor: this.props.progressBarColor,
@@ -56,6 +72,17 @@ class StepIcon extends Component {
       };
     } else if (this.props.isCompletedStep) {
       styles = {
+        iconStep: {
+          alignSelf: 'center',
+          justifyContent: 'center', //Centered horizontally
+          alignItems: 'center', //Centered vertically
+          flexDirection:'column',
+          flexGrow:1,
+
+/*           borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: Palette.BC_EletricTurquoise_200,   */
+        },
         circleStyle: {
           width: 36,
           height: 36,
@@ -80,7 +107,8 @@ class StepIcon extends Component {
           position: 'absolute',
           top: 36 / 2,
           left: 0,
-          right: 36 + 8,
+          //right: 36 + 8,
+          right: 36,
           borderTopStyle: this.props.borderStyle,
           borderTopWidth: this.props.borderWidth,
           borderTopColor: this.props.completedProgressBarColor,
@@ -90,7 +118,8 @@ class StepIcon extends Component {
           position: 'absolute',
           top: 36 / 2,
           right: 0,
-          left: 36 + 8,
+          //left: 36 + 8,
+          left: 36,
           borderTopStyle: this.props.borderStyle,
           borderTopWidth: this.props.borderWidth,
           borderTopColor: this.props.completedProgressBarColor,
@@ -102,6 +131,17 @@ class StepIcon extends Component {
       };
     } else {
       styles = {
+        iconStep: {
+          alignSelf: 'center',
+          justifyContent: 'center', //Centered horizontally
+          alignItems: 'center', //Centered vertically
+          flexDirection:'column',
+          flexGrow:1,
+
+/*           borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: Palette.BC_EletricTurquoise_200,   */
+        },
         circleStyle: {
           width: 36,
           height: 36,
@@ -126,7 +166,8 @@ class StepIcon extends Component {
           position: 'absolute',
           top: 36 / 2,
           left: 0,
-          right: 36 + 8,
+          //right: 36 + 8,
+          right: 36,
           borderTopStyle: this.props.borderStyle,
           borderTopWidth: this.props.borderWidth,
           borderTopColor: this.props.progressBarColor,
@@ -136,7 +177,8 @@ class StepIcon extends Component {
           position: 'absolute',
           top: 36 / 2,
           right: 0,
-          left: 36 + 8,
+          //left: 36 + 8,
+          left: 36,
           borderTopStyle: this.props.borderStyle,
           borderTopWidth: this.props.borderWidth,
           borderTopColor: this.props.progressBarColor,
@@ -148,16 +190,25 @@ class StepIcon extends Component {
       };
     }
 
+
     return (
       <View style={{ flexDirection: 'column', alignItems: 'center' }}>
         <View style={styles.circleStyle}>
-          <Text style={styles.circleText}>
+          <View style={styles.iconStep}>
+            <IconFeather  
+            size={this.props.isCompletedStep || this.props.isActiveStep ? 19:18}
+            color={this.props.isCompletedStep || this.props.isActiveStep ? Palette.IC_Basic_White:Palette.BC_NightBlue_300}
+            name={eval('this.props.iconName'+this.props.stepNum)} />
+          </View>
+
+
+          {/* <Text style={styles.circleText}>
             {this.props.isCompletedStep ? (
               <Text style={{ color: this.props.completedCheckColor }}>&#10003;</Text>
             ) : (
               <Text style={styles.stepNum}>{this.props.stepNum}</Text>
             )}
-          </Text>
+          </Text> */}
         </View>
         <Text style={styles.labelText}>{this.props.label}</Text>
         {!this.props.isFirstStep && <View style={styles.leftBar} />}
