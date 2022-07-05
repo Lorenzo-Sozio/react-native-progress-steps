@@ -73,6 +73,7 @@ class ProgressSteps extends Component {
         flexDirection: 'row',
         top: this.props.topOffset,
         marginBottom: this.props.marginBottom,
+        width: 342
       },
     };
 

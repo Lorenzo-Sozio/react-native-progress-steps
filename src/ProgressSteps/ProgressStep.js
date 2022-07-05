@@ -133,9 +133,9 @@ ProgressStep.propTypes = {
 };
 
 ProgressStep.defaultProps = {
-  nextBtnText: 'Next',
-  previousBtnText: 'Previous',
-  finishBtnText: 'Submit',
+  nextBtnText: 'Continua',
+  previousBtnText: 'Indietro',
+  finishBtnText: 'Conferma',
   nextBtnDisabled: false,
   previousBtnDisabled: false,
   errors: false,

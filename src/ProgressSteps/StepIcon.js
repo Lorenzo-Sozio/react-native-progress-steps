@@ -49,7 +49,7 @@ class StepIcon extends Component {
           top: 40 / 2.22,
           left: 0,
           //right: 40 + 8,
-          right: 40,
+          right: 38,
           borderTopStyle: this.props.borderStyle,
           borderTopWidth: this.props.borderWidth,
           borderTopColor: this.props.completedProgressBarColor,
