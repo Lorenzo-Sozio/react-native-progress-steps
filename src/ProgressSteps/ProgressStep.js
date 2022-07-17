@@ -6,7 +6,7 @@ import ProgressButtons from './ProgressButtons';
 
 class ProgressStep extends Component {
   onNextStep = async () => {
-    this.props.onNext && (await this.props.onNext());
+    this.props.onNext && (await this.props.onNext(this.props.activeStep+1));
 
     // Return out of method before moving to next step if errors exist.
     if (this.props.errors) {
